@@ -1,0 +1,112 @@
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*MAIN*/
+
+.main {
+  background-color: #fff;
+
+  width: 50rem;
+
+  margin: 5rem auto;
+  padding: 3rem;
+
+  border-radius: 0.4rem;
+}
+
+.main h1 {
+  font-size: 2rem;
+
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/*FORM*/
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input {
+  width: 80%;
+  height: 4rem;
+
+  padding: 2rem;
+
+  font-size: 2rem;
+
+  border: 1px solid #cccc;
+}
+
+.form button {
+  margin-left: 2rem;
+
+  height: 4rem;
+  width: 4rem;
+
+  border: none;
+
+  background-color: #f04064;
+  color: #ffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*LISTA ul*/
+
+ul {
+  margin-top: 3rem;
+}
+
+ul li {
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+  list-style: circle;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 3rem;
+
+  transition: 0.3s;
+}
+
+ul li:hover {
+  background-color: #51c5de;
+  border-radius: 0.4rem;
+}
+
+ul li .edit {
+  margin-right: 1.5rem;
+  color: #51c5de;
+  cursor: pointer;
+}
+
+ul li .close {
+  margin-right: 0.5rem;
+  color: #f04064;
+  cursor: pointer;
+}
+
+ul li:hover .edit,
+ul li:hover .close {
+  color: black;
+}
