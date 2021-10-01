@@ -11,12 +11,16 @@ export default class Main extends Component {
   //ADICINA TAREFA NA LISTA
   handleSubmit = e => {
     e.preventDefault()
-    this.state.novaTarefa = this.state.novaTarefa.trim()
+
+    this.setState({
+      novaTarefa: this.state.novaTarefa.trim()
+    })
 
     if (this.state.tarefas.indexOf(this.state.novaTarefa) !== -1) return
 
     this.setState({
-      tarefas: [...this.state.tarefas, this.state.novaTarefa]
+      tarefas: [...this.state.tarefas, this.state.novaTarefa],
+      novaTarefa: ''
     })
   }
 
@@ -24,6 +28,33 @@ export default class Main extends Component {
   handleChange = e => {
     this.setState({
       novaTarefa: e.target.value
+    })
+  }
+
+  // DELETA TAREFA
+  handleDelete = (e, index) => {
+    const novasTarefas = this.state.tarefas
+    novasTarefas.splice(index, 1)
+
+    this.setState({
+      tarefas: [...novasTarefas]
+    })
+  }
+
+  // EDITA A TAREFA
+  handleEdit = (e, index) => {
+    if (this.state.novaTarefa === '') return
+
+    this.setState({
+      novaTarefa: this.state.novaTarefa.trim()
+    })
+
+    const novasTarefas = this.state.tarefas
+
+    novasTarefas[index] = this.state.novaTarefa
+
+    this.setState({
+      tarefas: [...novasTarefas]
     })
   }
 
@@ -46,12 +77,18 @@ export default class Main extends Component {
           </button>
         </form>
         <ul className="tarefas">
-          {this.state.tarefas.map(tarefa => (
+          {this.state.tarefas.map((tarefa, index) => (
             <li>
               {tarefa}
               <div>
-                <FaEdit className="edit" />
-                <FaWindowClose className="close" />
+                <FaEdit
+                  className="edit"
+                  onClick={e => this.handleEdit(e, index)}
+                />
+                <FaWindowClose
+                  className="close"
+                  onClick={e => this.handleDelete(e, index)}
+                />
               </div>
             </li>
           ))}
