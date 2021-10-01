@@ -5,9 +5,22 @@ import { FaPlus, FaEdit, FaWindowClose } from 'react-icons/fa'
 export default class Main extends Component {
   state = {
     novaTarefa: '',
-    tarefas: ['Fazer café', 'Fazer almoço', 'Estudar']
+    tarefas: []
   }
 
+  //ADICINA TAREFA NA LISTA
+  handleSubmit = e => {
+    e.preventDefault()
+    this.state.novaTarefa = this.state.novaTarefa.trim()
+
+    if (this.state.tarefas.indexOf(this.state.novaTarefa) !== -1) return
+
+    this.setState({
+      tarefas: [...this.state.tarefas, this.state.novaTarefa]
+    })
+  }
+
+  // CAPTURA TAREFA DO INPUT
   handleChange = e => {
     this.setState({
       novaTarefa: e.target.value
@@ -18,7 +31,7 @@ export default class Main extends Component {
     return (
       <div className="main">
         <h1>Lista de tarefas</h1>
-        <form action="#" className="form">
+        <form action="#" className="form" onSubmit={this.handleSubmit}>
           <label for="newTask" className="sr-only">
             Digite sua tarefas
           </label>

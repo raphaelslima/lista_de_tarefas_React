@@ -72,19 +72,17 @@ ul {
 }
 
 ul li {
-  font-size: 1.5rem;
-
-  margin-top: 1.5rem;
-  list-style: circle;
-}
-
-ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 1.5rem;
+
+  list-style: circle;
 
   width: 100%;
   height: 3rem;
+
+  font-size: 1.5rem;
 
   transition: 0.3s;
 }
@@ -109,4 +107,9 @@ ul li .close {
 ul li:hover .edit,
 ul li:hover .close {
   color: black;
+}
+
+ul li div {
+  display: flex;
+  align-items: center;
 }
