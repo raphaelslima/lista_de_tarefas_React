@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input {
+  width: 80%;
+  height: 4rem;
+
+  padding: 2rem;
+
+  font-size: 2rem;
+
+  border: 1px solid #cccc;
+}
+
+.form button {
+  margin-left: 2rem;
+
+  height: 4rem;
+  width: 4rem;
+
+  border: none;
+
+  background-color: #f04064;
+  color: #ffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
