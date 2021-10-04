@@ -8,6 +8,24 @@ export default class Main extends Component {
     tarefas: []
   }
 
+  // ADICIONA TAREFAS DO LOCAL STORAGE PARA O LAYOUT
+  componentDidMount() {
+    const tarefas = JSON.parse(localStorage.getItem('tarefas'))
+
+    if (!this.state.tarefas) return
+
+    this.setState({
+      tarefas
+    })
+  }
+
+  //SALVA TAREFAS NO LOCAL STORAGE
+  componentDidUpdate(prevState) {
+    if (this.state.tarefas === prevState.tarefas) return
+
+    localStorage.setItem('tarefas', JSON.stringify(this.state.tarefas))
+  }
+
   //ADICINA TAREFA NA LISTA
   handleSubmit = e => {
     e.preventDefault()
